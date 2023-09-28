@@ -78,12 +78,11 @@ function getRandomBeesOrderInfo() {
   };
 }
 
-
 // Listen for the shortcut invocation
 app.shortcut('/customer', async ({ shortcut, ack, context, client }) => {
-    // Acknowledge the shortcut request
-    await ack();
-    
+  // Acknowledge the shortcut request
+  await ack();
+
   console.log('/customer received');
 
   // Send the initial "loading" message
@@ -310,12 +309,23 @@ app.event('app_home_opened', async ({ event, client, logger }) => {
   }
 });
 
+
+/////// TESTING /////////
 // Respond to hello
 // Listens to incoming messages that contain "hello"
 app.message('hello', async ({ message, say }) => {
   console.log('hello received');
   // say() sends a message to the channel where the event was triggered
   await say(`Hey there <@${message.user}>!`);
+});
+
+
+// The echo command simply echoes on command
+app.command('/echo', async ({ command, ack, respond }) => {
+  // Acknowledge command request
+  await ack();
+
+  await respond(`${command.text}`);
 });
 
 (async () => {
