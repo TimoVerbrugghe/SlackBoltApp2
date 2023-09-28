@@ -79,11 +79,11 @@ function getRandomBeesOrderInfo() {
 }
 
 // Listen for the shortcut invocation
-app.shortcut('/customer', async ({ shortcut, ack, context, client }) => {
+app.shortcut('customer_info', async ({ shortcut, ack, context, client }) => {
+  console.log('customer info received');
+
   // Acknowledge the shortcut request
   await ack();
-
-  console.log('/customer received');
 
   // Send the initial "loading" message
   const loadingMessage = await client.chat.postMessage({
