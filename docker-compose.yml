@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  slackdatacloud:
+    container_name: slackdatacloud
+    image: ghcr.io/timoverbrugghe/slackboltapp:main
+    environment:
+      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET}
+    restart: always
+    labels:
+      traefik.http.routers.slackdatacloud.entrypoints: https
+      traefik.http.services.slackdatacloud.loadbalancer.server.port: 3000
