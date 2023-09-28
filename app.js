@@ -81,7 +81,7 @@ function getRandomBeesOrderInfo() {
 
 // Listen for the shortcut invocation
 app.shortcut('/customer', async ({ shortcut, ack, context, client }) => {
-  console.log('shortcut received');
+  console.log('/customer received');
   // Acknowledge the shortcut request
   await ack();
 
@@ -170,6 +170,7 @@ app.shortcut('/customer', async ({ shortcut, ack, context, client }) => {
 
 // Get BEES Orders check
 app.action('check_bees_orders', async ({ body, ack, context, client }) => {
+  console.log('check_bees_orders received');
   // Acknowledge the action
   await ack();
 
@@ -273,6 +274,7 @@ app.action('check_bees_orders', async ({ body, ack, context, client }) => {
 
 // App Home
 app.event('app_home_opened', async ({ event, client, logger }) => {
+  console.log('app_home_opened received');
   try {
     // Call views.publish with the built-in client
     const result = await client.views.publish({
