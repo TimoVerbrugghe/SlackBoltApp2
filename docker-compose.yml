@@ -3,6 +3,8 @@ services:
   slackdatacloud:
     container_name: slackdatacloud
     image: ghcr.io/timoverbrugghe/slackboltapp2:main
+    networks:
+      - dockerproxy
     environment:
       - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
@@ -12,3 +14,7 @@ services:
     labels:
       traefik.http.routers.slackdatacloud.entrypoints: https
       traefik.http.services.slackdatacloud.loadbalancer.server.port: 3000
+
+networks:
+  dockerproxy:
+    external: true
