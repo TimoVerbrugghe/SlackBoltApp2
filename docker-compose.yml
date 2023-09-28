@@ -2,7 +2,7 @@ version: '3.8'
 services:
   slackdatacloud:
     container_name: slackdatacloud
-    image: ghcr.io/timoverbrugghe/slackboltapp:main
+    image: ghcr.io/timoverbrugghe/slackboltapp2:main
     environment:
       - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
