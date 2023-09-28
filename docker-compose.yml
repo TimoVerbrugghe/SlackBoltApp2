@@ -6,7 +6,6 @@ services:
     networks:
       - dockerproxy
     environment:
-      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET}
